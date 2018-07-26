@@ -31,4 +31,6 @@ cp conf/php7-fpm.init /etc/init.d/php7-fpm
 chmod +x /etc/init.d/php7-fpm
 update-rc.d php7-fpm defaults
 
+cp conf/php7-fpm.conf /etc/apache2/conf.d/php7-fpm.conf
+
 service php7-fpm start
