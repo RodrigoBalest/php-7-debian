@@ -24,9 +24,12 @@ sudo apt-get install -y \
     libjpeg-dev \
     libpng-dev \
     libpspell-dev \
-    libreadline-dev
+    libreadline-dev \
+    libpq-dev
 
 sudo mkdir /usr/local/php7
+
+sudo ln -sf /usr/include/ldap.h /usr/lib/x86_64-linux-gnu/ldap.h
 
 git clone https://github.com/php/php-src.git
 cd php-src
@@ -69,7 +72,9 @@ CONFIGURE_STRING="--prefix=/usr/local/php7 \
                   --with-curl \
                   --enable-fpm \
                   --with-fpm-user=www-data \
-                  --with-fpm-group=www-data"
+                  --with-fpm-group=www-data \
+                  --with-ldap=/usr/lib/x86_64-linux-gnu/ \
+                  --with-pdo-pgsql"
 
 ./configure $CONFIGURE_STRING
 
