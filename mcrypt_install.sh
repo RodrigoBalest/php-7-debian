@@ -16,3 +16,4 @@ x="$(dpkg --list | grep php | awk '/^ii/{ print $2}')"
 apt-get --purge remove $x
 
 /etc/init.d/php7-fpm restart
+
