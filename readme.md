@@ -6,6 +6,8 @@ These are a set of bash scripts for building and running PHP 7 (CLI and FPM) on 
 
 - `build.sh` installs the necessary build dependencies and the latest development version of PHP with CLI and FPM server APIs (SAPI) from the latest PHP 7 branch of https://github.com/php/php-src
 
+- `build_root.sh` is `build.sh` to be ran as root
+
 - `install.sh` sets up PHP-FPM by moving configuration files into their correct locations in `/usr/local/php7` and enables the `php7-fpm` service and adds it to the startup sequence.
 
 - `mcrypt_install.sh` installs MCrypt extension.
@@ -19,8 +21,10 @@ Please note that these are very simple scripts that don't implement error checki
 
 	$ git clone https://github.com/RodrigoBalest/php-7-debian.git
 	$ cd php-7-debian
-	$ ./build.sh
+	$ ./clear.sh
+	$ ./build.sh (or ./build_root.sh)
 	$ sudo ./install.sh
+	$ ./mcrypt_install.sh
 
 On systems with little amount of RAM such as Raspberry Pi you might want to decrease the number of parallel `make` jobs by passing the `JOB_COUNT` variable:
 
